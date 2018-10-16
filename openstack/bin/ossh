@@ -1,0 +1,4 @@
+### To use this you just input the name of the server you are trying to ssh to
+## EX. ssh controller-0
+## And it finds the control plane IP and logs in with the correct name
+ssh heat-admin@$(openstack server list |grep $1 |awk '{print $8}' |cut -d "=" -f2)
